@@ -13,7 +13,8 @@ router.post("/new", async (req, res) =>{
         await payee.save();
         console.log("payee saved");
         res.redirect("/");
-    }catch{
+    }catch(err){
+        console.log(err);
         console.log("payee did not save");
         res.redirect("/");
     }
@@ -24,7 +25,8 @@ router.get("/list", async (req, res) =>{
     try{
         list = await Payee.find({});
         res.json(list);
-    }catch{
+    }catch(err){
+        console.log(err);
         list = [];
         res.json(list);
     }
