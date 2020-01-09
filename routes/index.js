@@ -24,11 +24,11 @@ router.get("/list", async (req, res) =>{
     let list;
     try{
         list = await Payee.find({});
-        res.json(list);
+        res.render("list/list", {payees:list});
     }catch(err){
         console.log(err);
         list = [];
-        res.json(list);
+        res.render("list/list", {payees:list});
     }
 });
 
