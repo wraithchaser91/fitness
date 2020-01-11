@@ -1,0 +1,83 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    background-color: #020202;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    min-height:90vh;
+    font-family: 'Chivo', sans-serif;
+}
+
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:60vw;
+    height:50vh;
+}
+
+h1,h2,h3,h4,h5{
+    color:#e1e1e1;
+    font-weight: lighter;
+    margin-bottom:1vh;
+}
+
+label{
+    color:#e1e1e1;
+    font-weight: lighter;
+    margin-bottom:0.2vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form input{
+    margin-bottom:1vh;
+    border-radius:5px;
+    padding:3% 0;
+}
+
+button{
+    border:none;
+    background-color: #34ebbd;
+    margin: 1vh 0 2vh;
+    padding:1vh 2vw;
+    border-radius:8px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    position: relative;
+}
+
+.glowingButton::before{
+    content: '';
+    position: absolute;
+    top:-2%;
+    left:-2%;
+    right:-2%;
+    bottom:-2%;
+    background-color: #34ebbd;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.glowingButton:hover{
+    filter:hue-rotate(-180deg);
+}
+
+.error{
+    transition: 0.3s;
+    color:red;
+}
