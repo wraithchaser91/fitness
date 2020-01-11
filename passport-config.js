@@ -9,7 +9,6 @@ function init(passport){
             return done(null, false, {message:"no user with that name"});
         }
         try{
-            console.log(user);
             if(await bcrypt.compare(password, user.password)){
                 return done(null, user);
             }else{
@@ -46,7 +45,6 @@ getUserByName = async name =>{
 getUserById = async id =>{
     try{
         const user =  await User.findById(id);
-        console.log("user found");
         return user;
     }catch{
         console.log("Failed to find user by name");

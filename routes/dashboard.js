@@ -1,5 +1,7 @@
 const router = require("express").Router();
-// const middleware = require("../middleware.js");
+const {checkAuthentication} = require("../middleware.js");
+
+router.use(checkAuthentication);
 
 router.get("/", (req, res) =>{
     res.render("dashboard", {name:req.user.name});

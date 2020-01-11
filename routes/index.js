@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const passport = require("passport");
+const {checkUnAuthenticated} = require("../middleware");
 
-router.get("/", (req, res) =>{
-    console.log("first");
+router.get("/", checkUnAuthenticated, (req, res) =>{
     res.render("index");
 });
 
-//Login
-router.post("/login", passport.authenticate("local",{
+// //Login
+router.post("/login", checkUnAuthenticated, passport.authenticate("local",{
     successRedirect: "dashboard",
     failureRedirect: "/",
     failureFlash: true

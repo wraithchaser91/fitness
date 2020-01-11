@@ -26,7 +26,7 @@ initPassport(passport);
 
 const flash = require("express-flash");
 const session = require("express-session");
-app.use(flash);
+app.use(flash());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -46,9 +46,5 @@ const dashRouter = require("./routes/dashboard");
 
 app.use("/", indexRouter);
 app.use("/dashboard", dashRouter);
-
-// app.get("/", (req, res) => {
-//     res.render("index");
-// });
 
 app.listen(process.env.PORT || 3000);
