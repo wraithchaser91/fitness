@@ -43,8 +43,10 @@ db.once("open", () => console.log("Connection to DB"));
 
 const indexRouter = require("./routes/index");
 const dashRouter = require("./routes/dashboard");
+const adminRouter = require("./routes/admin");
 
 app.use("/", indexRouter);
 app.use("/dashboard", dashRouter);
+app.use("/admin", adminRouter);
 
 app.listen(process.env.PORT || 3000);

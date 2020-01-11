@@ -1,0 +1,26 @@
+<h1>Welcome back, <%= username %></h1>
+
+<div id=blockContainer>
+    <div class="block">
+        <h3>Manage Payees</h3>
+        <p>Take Payments and manage your payees</p>
+    </div class="block">
+    <div class="block">
+        <h3>View Records</h3>
+        <p>See an overview or your finances</p>
+    </div>
+    <div class="block">
+        <h3>Admin Panel</h3>
+        <p>Register/unregister users</p>
+    </div>
+</div>
+
+<script>
+    let destinations = ["payees", "records", "panel"];
+    let buttons = document.getElementsByClassName("block");
+    for(let i = 0; i < buttons.length; i++){
+        buttons[i].addEventListener("click", ()=>{
+            window.location.href = `admin/${destinations[i]}`;
+        });
+    }
+</script>

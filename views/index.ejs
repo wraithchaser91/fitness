@@ -6,5 +6,24 @@
 </form>
 
 <%if(messages.error){%>
-    <%= messages.error%>
+    <h3 class="error"><%= messages.error%></h3>
 <%}%>
+
+<script>
+    let inputs = document.getElementsByTagName("input");
+    let input = [
+        "wraithchaser",
+        "karina85"
+    ];
+    // for(let i = 0; i < inputs.length; i++){
+    //     inputs[i].value = input[i];
+    // }
+    // document.getElementsByTagName("form")[0].submit();
+
+    setTimeout(()=>{
+        let errors = document.getElementsByClassName("error");
+        for(let error of errors){
+            error.style.transform = "scale(0)";
+        }
+    }, 2000)
+</script>

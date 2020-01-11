@@ -2,17 +2,19 @@ const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs");
 const User = require("./models/User");
 
+let warningMessage = "Invalid Credentials";
+
 function init(passport){
     const authenticateUser = async (username, password, done) =>{
         const user = await getUserByName(username);
         if(user == null){
-            return done(null, false, {message:"no user with that name"});
+            return done(null, false, {message:warningMessage});
         }
         try{
             if(await bcrypt.compare(password, user.password)){
                 return done(null, user);
             }else{
-                return done(null, false, {message:"Password incorrect"});
+                return done(null, false, {message:warningMessage});
             }
         }catch(e){
             console.log("ERROR:"+e);

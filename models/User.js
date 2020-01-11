@@ -16,6 +16,10 @@ userSchema = mongoose.Schema({
     password:{
         type: String,
         required: true
+    },
+    permissionLevel:{
+        type:Number,
+        required: true
     }
 });
 

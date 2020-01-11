@@ -41,6 +41,7 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 2vh 0;
 }
 
 form input{
@@ -80,4 +81,23 @@ button{
 .error{
     transition: 0.3s;
     color:red;
+    font-size: 0.8em;
+}
+
+header{
+    position: absolute;
+    top: 0%;
+    right:0%;
+    width:40vw;
+}
+header ul{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: space-evenly;
+    margin-top:1vh;
+}
+header ul li a{
+    text-decoration: none;
+    color:white;
 }
