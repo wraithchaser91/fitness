@@ -1,0 +1,115 @@
+body{
+    justify-content: flex-start;
+}
+
+#mainContainer{
+    width:90vw;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height:auto
+}
+
+h1{
+    margin: 6vh 0;
+    font-size: 2.5em;
+    background-image: linear-gradient(45deg, #9b3a9e 0%, #fc00ff 100%);
+    -webkit-background-clip: text;
+    background-clip:text;
+    color:transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(105deg, #00dbde 0%, #fc00ff 100%);
+}
+
+#legend{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom:2vh;
+}
+
+#legend div{
+    display: flex;
+    flex-direction: row;
+    margin: 0 1vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#legend div p{
+    margin:0;
+}
+
+#legend div #adminSpan,
+#legend div #userSpan{
+    width:15px;
+    height:15px;
+    border-radius: 8px;
+    margin-right:0.2vw;
+}
+
+#legend div #adminSpan{
+    background-color: rgb(40, 221, 40);
+}
+
+#legend div #userSpan{
+    background-color: #bb50b2;
+}
+
+.Admin{
+    color: rgb(40, 221, 40);
+}
+
+.User{
+    color: #bb50b2;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    width:400px;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh 1vw;
+}
+
+.user .userControls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.unregisterForm{
+    margin:0
+}
+
+.unregisterForm button{
+    padding: 1vh 1.8vw;
+    margin:0;
+    font-size: 0.7em;
+    background-color: #9b3a9e88;
+    color:#ccc;
+}
+
+.unregisterForm button:hover{
+    color:white;
+}
+
+.mainButtonA{
+    color:#000;
+    text-decoration: none;
+    border-radius:8px;
+    cursor: pointer;
+    padding:0.8vh 2vw;
+    background-color: #9b3a9e;
+    margin-right:0.5vw;
+    font-size:0.8em;
+}
+
+.mainButtonA:hover{
+    color:#fff;
+}

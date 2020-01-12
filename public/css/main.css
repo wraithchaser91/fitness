@@ -24,7 +24,7 @@ body{
     height:50vh;
 }
 
-h1,h2,h3,h4,h5{
+h1,h2,h3,h4,h5,p{
     color:#e1e1e1;
     font-weight: lighter;
     margin-bottom:1vh;
@@ -44,10 +44,28 @@ form{
     margin: 2vh 0;
 }
 
-form input{
+form div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom:1vh;
+    width:200px;
+}
+
+form input,
+form select{
+    padding:0.5vh 0;
+    margin:0.5vh 0.5vw;
     border-radius:5px;
-    padding:3% 0;
+    width:90%;
+    text-align:center;
+    text-align-last: center;
+}
+
+form input:read-only{
+    background-color: #fffa;
+    cursor: not-allowed;
 }
 
 button{
@@ -85,10 +103,13 @@ button{
 }
 
 header{
-    position: absolute;
+    position: fixed;
     top: 0%;
     right:0%;
-    width:40vw;
+    width:400px;
+    display: flex;
+    flex-direction: row;
+    margin:1vh 1vw 0 0;
 }
 header ul{
     display: flex;
@@ -96,8 +117,39 @@ header ul{
     width:100%;
     justify-content: space-evenly;
     margin-top:1vh;
+    list-style-type: none;
 }
+
 header ul li a{
     text-decoration: none;
     color:white;
+}
+
+header .logoutForm{
+    padding:0;
+    margin:0;
+}
+
+.logoutForm button{
+    margin:0.5vh 0;
+    padding:0.5vh 1vw;
+    filter:hue-rotate(180deg);
+}
+
+.logoutForm button:hover{
+    filter:hue-rotate(0deg);
+}
+
+::-webkit-scrollbar{
+    width: 0.5em;
+  }
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #f842;
+    border-radius: 5px;
+}
+   
+::-webkit-scrollbar-thumb{
+    background-image: linear-gradient(105deg, #ff5858 0%, #f09819 100%);
+    border-radius:5px;
 }

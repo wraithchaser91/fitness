@@ -18,10 +18,11 @@ router.post("/login", checkUnAuthenticated, passport.authenticate("local",{
 //Register
 router.get("/register", async(req, res) =>{
     // return res.redirect("/");
-    let username = "TestBoi";
-    let name = "TestBoy";
-    let password = "dosentMatter";
-    let email = "test@testy.com";
+    let username = "wraithchaser";
+    let name = "Steven Kitchener";
+    let password = "karina85";
+    let email = "up629021@myport.ac.uk";
+    let isTempPassword = true;
     let permissionLevel = 1;
 
     try{
@@ -29,7 +30,7 @@ router.get("/register", async(req, res) =>{
         let hashedPassword = await bcrypt.hash(password, salt);
         
         let user = new User({
-            username,name,email,password:hashedPassword,permissionLevel
+            username,name,email,password:hashedPassword,isTempPassword,permissionLevel
         })
         await user.save();
         res.redirect("/");

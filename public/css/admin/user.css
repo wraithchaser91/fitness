@@ -1,0 +1,59 @@
+body{
+    justify-content: flex-start;
+}
+
+#mainContainer{
+    width:80vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height:auto
+}
+
+h1{
+    margin: 6vh 0;
+    font-size: 2.5em;
+    background-image: linear-gradient(45deg, #9b3a9e 0%, #fc00ff 100%);
+    -webkit-background-clip: text;
+    background-clip:text;
+    color:transparent;
+}
+
+#mainContainer div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:1vh;
+}
+
+#mainContainer div h3{
+    margin-bottom:0.2vh;
+    color: #9b3a9e;
+}
+
+#backButton{
+    position: fixed;
+    top:2vh;
+    left:2vw;
+    color:white;
+    text-decoration: none;
+}
+
+#backButton:hover{
+    color:#fc00ff;
+}
+
+.mainButtonA{
+    color:#000;
+    text-decoration: none;
+    border-radius:8px;
+    cursor: pointer;
+    padding:0.8vh 2vw;
+    background-color: #9b3a9e;
+    margin-right:0.5vw;
+    font-size:0.8em;
+}
+
+.mainButtonA:hover{
+    color:#fff;
+}

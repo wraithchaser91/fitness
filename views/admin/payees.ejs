@@ -1,2 +1,60 @@
+<%- include("../partials/utilities") %>
 <%- include("../partials/adminHeader") %>
-<h2>Payees</h2>
+<h1>Payee Management</h1>
+<div id="mainContainer">
+    <div id="paymentBlock">
+        <h2>Take a new payment</h2>
+        <form action="/admin/newPayment" method="POST">
+            <div>
+                <label for="amount">Amount (£)</label><input type="number" name="amount" min=0 required>
+            </div>
+            <div>
+                <label for="payee">Payee</label>
+                <select name="payee">
+                    <% payees.forEach(payee => {%>
+                        <option value="<%= payee.id %>"><%= payee.name %></option>
+                    <%})%>
+                </select>
+            </div>
+            <div>
+                <label for="date">Date</label><input type="date" name="date" required>
+            </div>
+            <div>
+                <button type="submit" class="glowingButton">Add Payment</button>
+            </div>
+        </form>
+        <div id="pastPayments">
+            <h2>Latest Payments</h2>
+            <% payments.forEach(payment => {%>
+                <div class="payment">
+                    <div><h4><%= payment.payee.name %></h4></div>
+                    <div><h5>£<%= payment.amount %></h3></div>
+                    <div><h5><%= toDateString(payment.date)%></h3></div>
+                </div>
+            <%});%>
+        </div>
+    </div>
+    <div id="resourceBlock">
+        <div id="resourceTitle">
+            <h2>List of Payees</h2>
+            <div id="payeeControls">
+                <a href="/admin/newPayee" class="subABasic">Create New Payee</a>
+            </div>
+        </div>
+        <div id="resourceContent">
+            <% payees.forEach(payee => {%>
+                <div class="payee">
+                    <h4><%= payee.name %></h4>
+                    <div>
+                        <a href="/admin/payees/<%= payee.id%>" class="mainButtonA">View</a>
+                        <% if(!payee.user){%>
+                            <a href="/admin/register/<%= payee.id %>" class="mainButtonA">Register</a>
+                        <%}else{%>
+                            <form action="/admin/panel/unregister/<%= payee.user.id %>?_method=DELETE" method="POST" class="unregisterForm"><button type="submit">Unregister</button></form>>
+                        <%}%>
+                    </div>
+                </div>
+            <%});%>
+        </div>
+    </div>
+</div>

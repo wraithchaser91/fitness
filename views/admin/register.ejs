@@ -1,0 +1,35 @@
+<%- include("../partials/adminHeader") %>
+<h1>Register a new user</h1>
+<p>Create a new user from an existing payee. This will allow that person to log into the client side of the website</p>
+<div id="mainContainer">
+    <form action="/admin/register" method="POST">
+        <div>
+            <label for="name">Payee Name</label>
+            <input type="text" name="name" value="<%= payee.name %>" readonly>
+        </div>
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" value="<%= user.username%>">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" value="<%= user.email%>">
+        </div>
+        <div>
+            <label for="password">Temporary Password</label>
+            <input type="text" name="password" value="" autocomplete="off">
+        </div>
+        <div>
+            <label for="permissions">User Role</label>
+            <select id="permSelect" name="permissions">
+                <option value=1>User</option>
+                <option value=0>Admin</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    <a href="/admin/payees" class="mainABasic">Back</a>
+    <h4 class="error"><%= message %></h4>
+</div>

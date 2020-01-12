@@ -1,0 +1,24 @@
+<%- include("../partials/adminHeader") %>
+<a href="/admin/panel" id="backButton">Back to Admin Panel</a>
+<h1><%= user.name %></h1>
+<div id="mainContainer">
+    <div>
+        <h3>Name</h3>
+        <h4><%= user.name %></h4>
+    </div>
+    <div>
+        <h3>Username</h3>
+        <h4><%= user.username %></h4>
+    </div>
+    <div>
+        <h3>Email</h3>
+        <h4><%= user.email %></h4>
+    </div>
+    <div>
+        <h3>User Role</h3>
+        <h4><%= (user.permissionLevel===0?`Admin`:`User`) %></h4>
+    </div>
+    <% if(ableToUpdate){%>
+        <a href="/admin/panel/user/update/<%= user.id %>" class="mainButtonA">Update</a>
+    <%}%>
+</div>

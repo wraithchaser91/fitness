@@ -17,6 +17,10 @@ userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    isTempPassword:{
+        type: Boolean,
+        required: true
+    },
     permissionLevel:{
         type:Number,
         required: true

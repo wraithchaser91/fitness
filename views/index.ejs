@@ -1,13 +1,15 @@
-<h1>Login</h1>
-<form action="/login" method="POST">
-    <label for="username">Username</label><input type="text" name="username" autofocus>
-    <label for="password">Password</label><input type="password" name="password" autocomplete="off">
-    <button class="glowingButton" type="submit">Submit</button>
-</form>
+<div id="mainContainer">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <label for="username">Username</label><input type="text" name="username" autofocus>
+        <label for="password">Password</label><input type="password" name="password" autocomplete="off">
+        <button class="glowingButton" type="submit">Submit</button>
+    </form>
 
-<%if(messages.error){%>
-    <h3 class="error"><%= messages.error%></h3>
-<%}%>
+    <%if(messages.error){%>
+        <h3 class="error"><%= messages.error%></h3>
+    <%}%>
+</div>
 
 <script>
     let inputs = document.getElementsByTagName("input");

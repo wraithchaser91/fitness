@@ -1,0 +1,24 @@
+<%- include("../partials/utilities") %>
+<%- include("../partials/adminHeader") %>
+<a href="/admin/payees" id="backButton">Back to Payees</a>
+<h1><%= payee.name %></h1>
+<div id="mainContainer">
+    <div id="profileContainer">
+        <h2>Profile</h2>
+        <h4>First Created: <%= toDateString(payee.firstDate) %></h4>
+        <h4>Total Payments: <%= payments.length %></h4>
+        <% let total = 0; for(let payment of payments)total+=payment.amount %>
+        <h3>Total Paid: £<%= total %></h3>
+    </div>
+    <div id="pastPaymentContainer">
+        <h2>Past Payments</h2>
+        <div id="pastPayments">
+            <%payments.forEach(payment => { %>
+                <div class="payment">
+                    <h4>Amount: £<%= payment.amount%></h4>
+                    <h4><%= toDateString(payment.date)%></h4>
+                </div>
+            <%});%>
+        </div>
+    </div>
+</div>

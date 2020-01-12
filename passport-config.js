@@ -8,7 +8,7 @@ function init(passport){
     const authenticateUser = async (username, password, done) =>{
         const user = await getUserByName(username);
         if(user == null){
-            return done(null, false, {message:warningMessage});
+            return done(null, false, {message:warningMessage+"1"});
         }
         try{
             if(await bcrypt.compare(password, user.password)){

@@ -1,2 +1,50 @@
+<%- include("../partials/utilities") %>
 <%- include("../partials/adminHeader") %>
-<h2>Records</h2>
+<h1>Payment Records</h1>
+<h3>Showing Records For All Time</h3>
+<div id="mainContainer">
+    <div id="profileContainer">
+        <% let total=0; for(let payment of payments)total+=payment.amount%>
+        <h2>General Statistics</h2>
+        <div>
+            <h3>Total Payees</h3>
+            <h3><%= payees.length %></h3>
+        </div>
+        <div>
+            <h3>Total Payments</h3>
+            <h3><%= payments.length %></h3>
+        </div>
+        <div>
+            <h3>Total Gross To Date</h3>
+            <h3>£<%= total %></h3>
+        </div>
+        <div>
+            <h3>Tax Deductions(20%)</h3>
+            <h3>£<%= Math.ceil(total*0.2) %></h3>
+        </div>
+        <div>
+            <h3>Savings Deductions(10%)</h3>
+            <h3>£<%= Math.ceil(total*0.1) %></h3>
+        </div>
+        <div>
+            <h3>Total Deductions To Date</h3>
+            <h3>£<%= Math.ceil(total*0.3) %></h3>
+        </div>
+        <div>
+            <h2>Total Net To Date</h2>
+            <h2>£<%= ~~(total*0.7) %></h2>
+        </div>
+    </div>
+    <div id="recordContainer">
+        <h2>List Of Payments</h2>
+        <div id="payments">
+            <%payments.forEach(payment=>{%>
+                <div class="payment">
+                    <h3><%= payment.payee.name %></h3>
+                    <h3><%= toSmallDateString(payment.date) %></h3>
+                    <h3>£<%= payment.amount %></h3>
+                </div>
+            <%})%>
+        </div>
+    </div>
+</div>

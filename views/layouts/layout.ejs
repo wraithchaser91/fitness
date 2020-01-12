@@ -8,12 +8,11 @@
     <link href="https://fonts.googleapis.com/css?family=Chivo&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
     <% if(typeof css != "undefined"){%>
-        <link rel="stylesheet" type="text/css" href="<%=`/css/admin/${css}.css`%>">
+        <link rel="stylesheet" type="text/css" href="<%=`/css/${css}.css`%>">
     <%}%>
 </head>
 <body>
-    <div id="mainContainer">
-        <%- body %>
-    </div>
+    <%- body %>
+
 </body>
 </html>
