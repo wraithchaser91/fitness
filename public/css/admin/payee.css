@@ -29,6 +29,7 @@ h1{
     left:2vw;
     color:white;
     text-decoration: none;
+    z-index:10;
 }
 
 #backButton:hover{
@@ -47,17 +48,17 @@ h1{
 }
 
 #profileContainer h3{
-    margin: 3vh 0;
+    margin: 1vh 0;
+    font-size:0.8em;
 }
 
 .payment{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-}
-
-.payment h4{
-    width:150px;
+    width:160px;
+    margin:0 3vw;
+    justify-content: space-between;
 }
 
 #pastPayments{

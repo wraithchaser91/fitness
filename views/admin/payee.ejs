@@ -5,17 +5,17 @@
 <div id="mainContainer">
     <div id="profileContainer">
         <h2>Profile</h2>
-        <h4>First Created: <%= toDateString(payee.firstDate) %></h4>
-        <h4>Total Payments: <%= payments.length %></h4>
+        <h3>First Created: <%= toDateString(payee.firstDate) %></h3>
+        <h3>Total Payments: <%= payments.length %></h3>
         <% let total = 0; for(let payment of payments)total+=payment.amount %>
-        <h3>Total Paid: £<%= total %></h3>
+        <h2>Total Paid: £<%= total %></h2>
     </div>
     <div id="pastPaymentContainer">
         <h2>Past Payments</h2>
         <div id="pastPayments">
             <%payments.forEach(payment => { %>
                 <div class="payment">
-                    <h4>Amount: £<%= payment.amount%></h4>
+                    <h4>£<%= payment.amount%></h4>
                     <h4><%= toDateString(payment.date)%></h4>
                 </div>
             <%});%>

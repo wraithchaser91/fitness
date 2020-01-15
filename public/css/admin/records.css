@@ -73,6 +73,11 @@ h1{
     cursor: default;
 }
 
+#profileContainer h3,
+#recordContainer .payment h3{
+    font-size:0.8em;
+}
+
 #recordContainer .payment:nth-child(odd) h3{
     color:#888;
 }

@@ -15,6 +15,16 @@ body{
     font-family: 'Chivo', sans-serif;
 }
 
+#overlay{
+    position:fixed;
+    background-color:#000c;
+    z-index:5;
+    width:100vw;
+    height:100%;
+    top:0;
+    left:0;
+}
+
 #mainContainer{
     display: flex;
     flex-direction: column;
@@ -22,12 +32,15 @@ body{
     justify-content: center;
     width:60vw;
     height:50vh;
+    z-index:10;
 }
 
 h1,h2,h3,h4,h5,p{
     color:#e1e1e1;
     font-weight: lighter;
     margin-bottom:1vh;
+    z-index: 10;
+
 }
 
 label{
@@ -42,6 +55,7 @@ form{
     align-items: center;
     justify-content: center;
     margin: 2vh 0;
+    z-index: 10;
 }
 
 form div{
@@ -110,6 +124,7 @@ header{
     display: flex;
     flex-direction: row;
     margin:1vh 1vw 0 0;
+    z-index:10;
 }
 header ul{
     display: flex;
@@ -138,6 +153,22 @@ header .logoutForm{
 
 .logoutForm button:hover{
     filter:hue-rotate(0deg);
+}
+
+#credits{
+    position: fixed;
+    bottom:0;
+    right:1vw;
+    z-index:10;
+}
+
+#credits h3{
+    font-size:0.7em;
+    color:#fff8;
+}
+
+#credits a{
+    color:#f84;
 }
 
 ::-webkit-scrollbar{

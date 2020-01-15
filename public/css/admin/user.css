@@ -37,6 +37,7 @@ h1{
     left:2vw;
     color:white;
     text-decoration: none;
+    z-index:10;
 }
 
 #backButton:hover{
@@ -50,7 +51,6 @@ h1{
     cursor: pointer;
     padding:0.8vh 2vw;
     background-color: #9b3a9e;
-    margin-right:0.5vw;
     font-size:0.8em;
 }
 
