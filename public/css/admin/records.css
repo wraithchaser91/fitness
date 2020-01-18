@@ -29,13 +29,132 @@ h1{
     border-radius:8px;
     cursor: pointer;
     padding:0.8vh 2vw;
-    background-color: #ff5858;
-    margin-right:0.5vw;
+    background-image: linear-gradient(105deg, #ff5858 0%, #f09819 100%);
     font-size:0.8em;
+    max-width:20vw;
+    text-align: center;
 }
 
 .mainButtonA:hover{
     color:#fff;
+}
+
+#initDiv{
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#initDiv img{
+    width:25px;
+    margin:-0.5vh 0 0 1vw;
+    cursor:pointer;
+    filter: brightness(0.5);
+    transition:0.3s;
+}
+
+#initDiv img:hover{
+    filter: brightness(1);
+}
+
+#initDiv #titleString{
+    cursor: pointer;
+}
+
+#initDiv #titleString:hover ~ img{
+    filter: brightness(1);
+}
+
+#resetSearch{
+    margin: -0.5vh 0 0;
+    font-size: 0.65em;
+    color:#ccc;
+    cursor: pointer;
+}
+
+#resetSearch:hover{
+    color:white;
+}
+
+#recordDateChoice{
+    width:450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:1.5vh 0 2vh;
+    transition:0.3s;
+    transform-origin: top;
+    transform: scaleY(0);
+    position: absolute;
+    top: 20vh;
+    z-index: 20;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.75) 200%);
+    background-blend-mode: multiply;
+    padding:2vh 2vw;
+}
+
+#closeSearchButton{
+    position: absolute;
+    top:-0.2vh;
+    right:1vw;
+    padding:0;
+    background-color: transparent;
+    color:#aaa;
+    font-size: 0.7em;
+}
+
+#recordDateChoice #closeSearchButton:hover{
+    color: #f09819;
+}
+
+#recordDateChoice div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#searchString{
+    margin:0;
+    font-size:0.7em;
+}
+
+#recordDateChoice #searchOptions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#recordDateChoice #searchOptions div{
+    width: 150px;
+    margin: 0 1vw 3vh;
+}
+
+#recordDateChoice #searchOptions div h3{
+    font-size:0.7em;
+}
+
+#recordDateChoice #searchOptions div input{
+    width:100%;
+    border-radius:5px;
+    padding:0.3vh 0;
+}
+#recordDateChoice #searchOptions div select{
+    width:100%;
+    text-align-last: center;
+    padding:0.55vh 0;
+    border-radius:5px;
+}
+
+#recordDateChoice #searchForNewDatesButton{
+    margin-top:1vh;
 }
 
 #profileContainer,
@@ -58,6 +177,53 @@ h1{
 #profileContainer div h3:nth-child(1),
 #profileContainer div h2:nth-child(1){
     width:300px;
+}
+
+#recordContainer #titleDiv{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#recordContainer #titleDiv img{
+    width:25px;
+    margin-top:-3vh;
+    cursor:pointer;
+    filter: brightness(0.5);
+    transition:0.3s;
+}
+
+#recordContainer #titleDiv #filterDiv{
+    position: absolute;
+    top:3vh;
+    right:0vw;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.75) 200%);
+    background-blend-mode: multiply;
+    padding:20px;
+    border-radius: 8px 0px 8px 8px;
+    z-index: 25;
+    transition:0.3s;
+    transform:scaleY(0);
+    transform-origin: top;
+}
+
+#filterDiv .filterOption{
+    font-size:0.7em;
+    cursor: pointer;
+    margin:0;
+    padding:0.3vh 0;
+    text-align: center;
+}
+
+#filterDiv h4:hover{
+    color:#f09819;
+}
+
+#recordContainer #titleDiv img:hover{
+    filter: brightness(1);
 }
 
 #recordContainer #payments{

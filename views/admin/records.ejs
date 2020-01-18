@@ -1,21 +1,46 @@
 <%- include("../partials/utilities") %>
 <%- include("../partials/adminHeader") %>
 <h1>Payment Records</h1>
-<h3>Showing Records For All Time</h3>
+<div id="initDiv">
+    <h3 id="titleString">Showing Records For All Time</h3>
+    <img src = "../imgs/search.png" id="openSearchPanel">
+</div>
+<h4 id="resetSearch">Reset</h4>
+<div id="recordDateChoice">
+    <div id="searchOptions">
+        <div>
+            <h3>Date From</h3>
+            <input type="date" id="dateFromInput">
+        </div>
+        <div>
+            <h3>For</h3>
+            <select id="timeFrameSelect">
+                <option value="9999">All Time</option>
+                <option value="7">1 Week</option>
+                <option value="28">4 Weeks</option>
+                <option value="91">13 Weeks</option>
+                <option value="365">1 Year</option>
+                <option value="730">2 Years</option>
+                <option value="1825">5 Years</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <h4 id="searchString">Search String</h4>
+        <a class="mainButtonA" id="searchForNewDatesButton">Start The Search</a>
+    </div>
+    <button id="closeSearchButton">X</button>
+</div>
 <div id="mainContainer">
     <div id="profileContainer">
         <% let total=0; for(let payment of payments)total+=payment.amount%>
         <h2>General Statistics</h2>
         <div>
-            <h3>Total Payees</h3>
-            <h3><%= payees.length %></h3>
-        </div>
-        <div>
             <h3>Total Payments</h3>
             <h3><%= payments.length %></h3>
         </div>
         <div>
-            <h3>Total Gross To Date</h3>
+            <h3>Total Gross Profit</h3>
             <h3>£<%= total %></h3>
         </div>
         <div>
@@ -27,16 +52,28 @@
             <h3>£<%= Math.ceil(total*0.1) %></h3>
         </div>
         <div>
-            <h3>Total Deductions To Date</h3>
+            <h3>Total Deductions</h3>
             <h3>£<%= Math.ceil(total*0.3) %></h3>
         </div>
         <div>
-            <h2>Total Net To Date</h2>
+            <h2>Total Net Profit</h2>
             <h2>£<%= ~~(total*0.7) %></h2>
         </div>
     </div>
     <div id="recordContainer">
-        <h2>List Of Payments</h2>
+        <div id="titleDiv">
+            <h2>List Of Payments</h2>
+            <img src="../imgs/filter.png" id="filterButton">
+            <div id="filterDiv">
+                <h4 class="filterOption">Date - Latest to Earliest</h4 class="filterOption">
+                <h4 class="filterOption">Date - Earliest to Latest</h4>
+                <h4 class="filterOption">Amount - High to Low</h4>
+                <h4 class="filterOption">Amount - Low to High</h4>
+                <h4 class="filterOption">Payee - First to Last</h4>
+                <h4 class="filterOption">Payee - Last to First</h4>
+                <h4 class="filterOption">Reset Choices</h4>
+            </div>
+        </div>
         <div id="payments">
             <%payments.forEach(payment=>{%>
                 <div class="payment">
@@ -48,3 +85,6 @@
         </div>
     </div>
 </div>
+
+<script src="../js/utilities.js"></script>
+<script src="../js/admin/records.js"></script>

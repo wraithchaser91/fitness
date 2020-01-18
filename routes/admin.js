@@ -77,7 +77,7 @@ router.post("/newPayment", async(req, res)=>{
             res.redirect("/admin/payees");
         }catch(error){
             errorLog(error);
-            res.redirect("/admin/payees")
+            res.redirect("/admin/payees");
         }
     }
 });
@@ -123,17 +123,27 @@ router.post("/register", async(req, res)=>{
 
 //////////*******MANAGING RECORDS******\\\\\\\\\\\\\\ 
 router.get("/records", async(req, res)=>{
+    let query = Payment.find();
+    if(req.query.startDate !=null && req.query.startDate != ""){
+        query = query.gte("date", req.query.startDate);
+    }
+    if(req.query.endDate !=null && req.query.endDate != ""){
+        query = query.lte("date", req.query.endDate);
+    }
     let payments;
-    let payees;
     try{
-        payments = await Payment.find({}).populate("payee").sort({date:-1}).exec();
-        payees = await Payee.find({});
+        let filter = {};
+        if(req.query.filter !=null && req.query.filter != ""){
+            filter = createFilter(req.query.filter);
+        }else{
+            filter.date=-1;
+        }
+        payments = await query.populate("payee").sort(filter).exec();
     }catch(error){
         errorLog(error);
         payments = [];
-        payees = [];
     }
-    res.render("admin/records", {payments, payees, css:"admin/records"});
+    res.render("admin/records", {payments, css:"admin/records"});
 });
 
 //////////*******MANAGING USERS******\\\\\\\\\\\\\\ 
@@ -223,6 +233,30 @@ router.delete("/logout", (req, res)=>{
 
 errorLog = err =>{
     console.log(`ERROR: ${err}`);
+}
+
+createFilter = index =>{
+    let filter = {};
+    if(index == 0){ //date high to low
+        filter.date = -1;
+    }else if(index == 1){ //date low to high
+        filter.date = 1;
+    }else if(index == 2){ //amount high to low
+        filter.amount = -1;
+        filter.date=-1;
+    }else if(index == 3){ //amount low to high
+        filter.amount = 1;
+        filter.date=-1;
+    }else if(index == 4){ //payye first to last
+        filter.payee=1;
+        filter.date=-1;
+    }else if(index == 5){ //payee last to first
+        filter.payee=-1;
+        filter.date=-1;
+    }else if(index == 6){ //reset
+        filter.date=-1;
+    }
+    return filter;
 }
 
 module.exports = router;
