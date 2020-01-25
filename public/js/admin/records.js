@@ -23,7 +23,7 @@ searchSelect.addEventListener("change", ()=>getSearchStringValue());
 getSearchStringValue = () =>{
     let boilerplate = `Find all records from`
     if(searchDate.value==="")boilerplate+=` the beginning of time`;
-    else boilerplate+=` ${modifyDateString(searchDate.value)}`;
+    else boilerplate+=` ${searchDate.value}`;
     boilerplate+=` for ${searchSelect.options[searchSelect.selectedIndex].innerHTML}`;
 
     searchString.textContent = boilerplate;

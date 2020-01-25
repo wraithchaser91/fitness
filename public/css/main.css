@@ -75,6 +75,7 @@ form select{
     width:90%;
     text-align:center;
     text-align-last: center;
+    cursor:pointer;
 }
 
 form input:read-only{
@@ -169,6 +170,26 @@ header .logoutForm{
 
 #credits a{
     color:#f84;
+}
+
+#deletePayment{
+    position: absolute;
+    background-color: #FF96C4;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+    right: -3.5vw;
+    top: 0.1vh;
+    cursor: pointer;
+}
+#deletePayment:hover{
+    color:white;
+}
+
+.hidden{
+    display: none;
 }
 
 ::-webkit-scrollbar{

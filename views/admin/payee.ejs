@@ -20,5 +20,60 @@
                 </div>
             <%});%>
         </div>
+        <span id="deletePayment">X</span>
     </div>
 </div>
+
+<script src="/js/admin/deletePayment.js"></script>
+<script>
+    let backgroundColour = "#30cfd044"
+    let split = window.location.href.split("/");
+    let redirect = `payees/${split[split.length-1]}`;                           //CHANGE 
+    let paymentList = document.getElementsByClassName("payment");   //CHANGE
+    let delButton = document.getElementById("deletePayment");       //CHANGE
+    let activePayment;
+    delButton.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        //run delete code in here otherwise users may be able to get hold of delete code
+        if(activePayment !== null){
+            let children = activePayment.ref.children;
+            let name = document.getElementsByTagName("h1")[0].textContent;
+            let amount = children[0].textContent.replace("£", "");
+            let date = children[1].textContent;
+
+            let form = document.createElement("form");
+            form.action = "/admin/deletePayment?_method=DELETE";
+            form.method = "POST";
+            let i1 = document.createElement("input");
+            i1.value = name;
+            i1.name = "name";
+            let i2 = document.createElement("input");
+            i2.value = amount;
+            i2.name = "amount";
+            let i3 = document.createElement("input");
+            i3.value = date;
+            i3.name = "date";
+            let i4 = document.createElement("input");
+            i4.value = redirect;
+            i4.name = "redirect";
+            
+            form.appendChild(i1);
+            form.appendChild(i2);
+            form.appendChild(i3);
+            form.appendChild(i4);
+            form.style.display = "none";
+            document.getElementsByTagName("body")[0].appendChild(form);
+            form.submit();
+        }
+    });
+    let payments = [];
+    for(let payment of paymentList){
+        payments.push(new Payment(payment));
+    }
+
+    document.addEventListener("click", ()=>{
+        for(let payment of payments){
+            payment.deactivate();
+        }
+    });
+</script>

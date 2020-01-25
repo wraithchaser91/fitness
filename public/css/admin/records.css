@@ -145,12 +145,14 @@ h1{
     width:100%;
     border-radius:5px;
     padding:0.3vh 0;
+    cursor: pointer;
 }
 #recordDateChoice #searchOptions div select{
     width:100%;
     text-align-last: center;
     padding:0.55vh 0;
     border-radius:5px;
+    cursor:pointer;
 }
 
 #recordDateChoice #searchForNewDatesButton{
@@ -236,12 +238,19 @@ h1{
     flex-direction: row;
     justify-content: flex-start;
     margin-left:3vw;
-    cursor: default;
+    cursor: pointer;
+    position: relative;
+    border-radius:8px;
+    padding:0.5vh 0.5vw;
 }
 
 #profileContainer h3,
 #recordContainer .payment h3{
     font-size:0.8em;
+}
+
+#recordContainer .payment h3{
+    margin:0;
 }
 
 #recordContainer .payment:nth-child(odd) h3{
@@ -259,4 +268,14 @@ h1{
 
 #recordContainer .payment h3:nth-child(1){
     width:200px;
+}
+
+#deletePayment{
+    right:0;
+    left:-2.5vw;
+    top:0.3vh;
+    width:20px;
+    height:20px;
+    font-size:15px;
+    background-color:#f84;
 }

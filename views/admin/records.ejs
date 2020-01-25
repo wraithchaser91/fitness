@@ -10,7 +10,7 @@
     <div id="searchOptions">
         <div>
             <h3>Date From</h3>
-            <input type="date" id="dateFromInput">
+            <input type="text" id="dateFromInput">
         </div>
         <div>
             <h3>For</h3>
@@ -80,11 +80,89 @@
                     <h3><%= payment.payee.name %></h3>
                     <h3><%= toSmallDateString(payment.date) %></h3>
                     <h3>£<%= payment.amount %></h3>
+                    <h3 class="hidden"><%= payment.date %></h3>
                 </div>
             <%})%>
         </div>
+        <span id="deletePayment">X</span>
     </div>
 </div>
 
 <script src="../js/utilities.js"></script>
 <script src="../js/admin/records.js"></script>
+<script src="/js/admin/deletePayment.js"></script>
+<script>
+    let backgroundColour = "#f0981944"
+    let redirect = "records";                                       //CHANGE
+    let paymentList = document.getElementsByClassName("payment");   //CHANGE
+    let delButton = document.getElementById("deletePayment");       //CHANGE
+    let activePayment;
+    delButton.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        //run delete code in here otherwise users may be able to get hold of delete code
+        if(activePayment !== null){
+            let children = activePayment.ref.children;
+            let name = children[0].textContent;
+            let amount = children[2].textContent.replace("£", "");
+            let date = children[3].textContent;
+
+            let form = document.createElement("form");
+            form.action = "/admin/deletePayment?_method=DELETE";
+            form.method = "POST";
+            let i1 = document.createElement("input");
+            i1.value = name;
+            i1.name = "name";
+            let i2 = document.createElement("input");
+            i2.value = amount;
+            i2.name = "amount";
+            let i3 = document.createElement("input");
+            i3.value = date;
+            i3.name = "date";
+            let i4 = document.createElement("input");
+            i4.value = redirect;
+            i4.name = "redirect";
+            
+            form.appendChild(i1);
+            form.appendChild(i2);
+            form.appendChild(i3);
+            form.appendChild(i4);
+            form.style.display = "none";
+            document.getElementsByTagName("body")[0].appendChild(form);
+            console.log(name, amount, date, redirect);
+            form.submit();
+        }
+    });
+    let payments = [];
+    for(let payment of paymentList){
+        payments.push(new Payment(payment));
+    }
+
+    document.addEventListener("click", ()=>{
+        for(let payment of payments){
+            payment.deactivate();
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<script>
+    let picker = new Pikaday({field:document.getElementById("dateFromInput"),});
+    let query = window.location.href.split("?");
+    if(query.length === 1){
+        picker.setDate(new Date());
+    }else{
+        let queries = query[1].split("&");
+        let startDate;
+        for(let test of queries){
+            let pieces = test.split("=");
+            if(pieces[0] === "startDate"){
+                startDate = pieces[1];
+                break;
+            }
+        }
+        if(startDate){
+            picker.setDate(new Date(startDate.replace(/%20/g, " ")));
+        }else{
+            picker.setDate(new Date());
+        }
+    }
+</script>

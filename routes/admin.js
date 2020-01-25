@@ -230,6 +230,25 @@ router.delete("/logout", (req, res)=>{
     req.logOut();
     res.redirect("/");
 });
+//delete payment route
+router.delete("/deletePayment", async(req, res) =>{
+    try{
+        const payee = await Payee.findOne({name:req.body.name});
+        if(payee){
+            const payment = await Payment.findOne({
+                payee: payee,
+                amount: req.body.amount,
+                date: req.body.date
+            });
+            if(payment){
+                await payment.remove();
+            }
+        }
+    }catch(error){
+        errorLog(error);
+    }
+    res.redirect(req.body.redirect);
+})
 
 errorLog = err =>{
     console.log(`ERROR: ${err}`);
