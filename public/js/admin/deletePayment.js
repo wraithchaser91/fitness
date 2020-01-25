@@ -20,10 +20,12 @@ class Payment{
             this.isClicked = false;
         });
         this.ref.addEventListener("touchstart", (e)=>{
+            e.preventDefault();
             this.isClicked = true;
             this.animate();
         });
         this.ref.addEventListener("touchend", (e)=>{
+            e.preventDefault();
             this.isClicked = false;
         });
     }
