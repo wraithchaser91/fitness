@@ -3,8 +3,8 @@
 <h1>Payee Management</h1>
 <div id="mainContainer">
     <div id="paymentBlock">
-        <h2>Take a new payment</h2>
-        <form action="/admin/newPayment" method="POST">
+        <h2 class="scaleHeading up">Take a new payment</h2>
+        <form action="/admin/newPayment" method="POST" class="scaleContainer">
             <div>
                 <label for="amount">Amount (£)</label><input type="number" name="amount" min=0 required>
             </div>
@@ -24,25 +24,27 @@
             </div>
         </form>
         <div id="pastPayments">
-            <h2>Latest Payments</h2>
-            <% payments.forEach(payment => {%>
-                <div class="payment">
-                    <div><h4><%= payment.payee.name %></h4></div>
-                    <div><h5>£<%= payment.amount %></h3></div>
-                    <div><h5><%= toDateString(payment.date)%></h3></div>
-                </div>
-            <%});%>
+            <h2 class="scaleHeading down">Latest Payments</h2>
+            <div class="scaleContainer">
+                <% payments.forEach(payment => {%>
+                    <div class="payment">
+                        <div><h4><%= payment.payee.name %></h4></div>
+                        <div><h5>£<%= payment.amount %></h3></div>
+                        <div><h5><%= toDateString(payment.date)%></h3></div>
+                    </div>
+                <%});%>
+            </div>
             <span id="deletePayment">X</span>
         </div>
     </div>
     <div id="resourceBlock">
         <div id="resourceTitle">
-            <h2>List of Payees</h2>
+            <h2 class="scaleHeading down">List of Payees</h2>
             <div id="payeeControls">
                 <a href="/admin/newPayee" class="subABasic">Create New Payee</a>
             </div>
         </div>
-        <div id="resourceContent">
+        <div id="resourceContent" class="scaleContainer">
             <% payees.forEach(payee => {%>
                 <div class="payee">
                     <h4><%= payee.name %></h4>
@@ -121,4 +123,15 @@
             field:document.getElementById("date"),
         });
     picker.setDate(new Date());
+</script>
+<script src="/js/admin/mobileScale.js"></script>
+<script>
+    if(document.body.clientWidth < 767){
+        let headings = document.getElementsByClassName("scaleHeading");
+        let containers = document.getElementsByClassName("scaleContainer");
+        let scalers = [];
+        for(let i = 0; i < headings.length; i++){
+            scalers.push(new Scaler(headings[i], containers[i], (i===0?true:false)));
+        }
+    }
 </script>

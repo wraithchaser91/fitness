@@ -32,6 +32,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//device detection
+const device = require("express-device");
+app.use(device.capture());
+
 //connect to a database
 const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true});

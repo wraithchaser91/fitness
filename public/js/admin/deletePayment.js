@@ -1,4 +1,5 @@
 ///Allowing functionality to delete payments
+let isButtonShown = false;
 class Payment{
     constructor(ref){
         this.ref = ref;
@@ -18,6 +19,13 @@ class Payment{
         this.ref.addEventListener("mouseup", (e)=>{
             this.isClicked = false;
         });
+        this.ref.addEventListener("touchstart", (e)=>{
+            this.isClicked = true;
+            this.animate();
+        });
+        this.ref.addEventListener("touchend", (e)=>{
+            this.isClicked = false;
+        });
     }
     animate(){
         if(this.isClicked){
@@ -35,6 +43,10 @@ class Payment{
         }
         this.isActive = true;
         this.ref.style.background = backgroundColour;
+        if(!isButtonShown){
+            delButton.style.display = "block";
+            isButtonShown = true;
+        }
         if(!this.hasButton)this.ref.appendChild(delButton);
         this.hasButton = true;
         activePayment = this;

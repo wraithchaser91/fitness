@@ -1,6 +1,6 @@
 'use strict';
 
-const particleCount = 300;
+const particleCount = (screen.availWidth < 600?100:300);
 const particlePropCount = 9;
 const particlePropsLength = particleCount * particlePropCount;
 const rangeY = window.innerHeight;

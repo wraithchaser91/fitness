@@ -133,7 +133,7 @@ h1{
 }
 
 #recordDateChoice #searchOptions div{
-    width: 150px;
+    flex:1;
     margin: 0 1vw 3vh;
 }
 
@@ -146,6 +146,7 @@ h1{
     border-radius:5px;
     padding:0.3vh 0;
     cursor: pointer;
+    text-align: center;
 }
 #recordDateChoice #searchOptions div select{
     width:100%;
@@ -161,7 +162,6 @@ h1{
 
 #profileContainer,
 #recordContainer{
-    flex:1;
     margin: 2vh 1vw;
 }
 
@@ -276,6 +276,7 @@ h1{
     top:0.3vh;
     width:20px;
     height:20px;
-    font-size:15px;
+    font-size:14px;
     background-color:#f84;
+    padding: 1.5px 0.5px 0px 0px;
 }

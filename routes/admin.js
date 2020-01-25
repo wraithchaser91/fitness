@@ -14,6 +14,7 @@ router.use(checkAuthentication);
 router.use(checkAdmin);
 
 router.get("/", (req, res)=>{
+
     res.render("admin", {username: req.user.username, css:"admin/dashboard"});
 });
 
@@ -276,6 +277,10 @@ createFilter = index =>{
         filter.date=-1;
     }
     return filter;
+}
+
+findResCSS = () =>{
+
 }
 
 module.exports = router;
