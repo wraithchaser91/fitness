@@ -4,6 +4,7 @@
     box-sizing: border-box;
     scrollbar-color: #888888 #fff;
     scrollbar-width: thin;
+    -webkit-user-select: none;
 }
 
 ::selection{
