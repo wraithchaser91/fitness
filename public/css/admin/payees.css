@@ -233,4 +233,7 @@ h1{
     #resourceBlock #resourceContent .payee div{
         width:auto;
     }
+    .mainABasic{
+        font-size:0.8em;
+    }
 }

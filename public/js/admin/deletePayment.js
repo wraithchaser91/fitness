@@ -1,8 +1,7 @@
 let isButtonShown = false;
 class Payment{
-    constructor(ref, preventDefault=false){
+    constructor(ref){
         this.ref = ref;
-        this.preventDefault = preventDefault;
         this.isClicked = false;
         this.isActive = false;
         this.hasButton = false;
@@ -16,7 +15,6 @@ class Payment{
     }
     setListeners(){
         this.ref.addEventListener("click", (e)=>{
-            if(this.preventDefault)e.preventDefault();
             let newDate = Date.now();
             if(this.lastDate === -1){
                 this.lastDate = newDate;
@@ -34,15 +32,7 @@ class Payment{
                 this.lastDate = newDate;
             }
         });
-        // this.ref.addEventListener("mousedown", (e)=>{
-        //     this.isClicked = true;
-        //     this.animate();
-        // });
-        // this.ref.addEventListener("mouseup", (e)=>{
-        //     this.isClicked = false;
-        // });
         this.ref.addEventListener("touchstart", (e)=>{
-            if(this.preventDefault)e.preventDefault();
             let newDate = Date.now();
             if(this.lastDate === -1){
                 this.lastDate = newDate;
@@ -60,16 +50,6 @@ class Payment{
                 this.lastDate = newDate;
             }
         });
-    }
-    animate(){
-        if(this.isClicked){
-            if(this.timer > this.maxTimer && !this.isActive){
-                this.setActive();
-            }else if(!this.isActive){
-                this.timer++;
-            }
-            requestAnimationFrame(()=>this.animate());
-        }
     }
     setActive(){
         for(let payment of payments){

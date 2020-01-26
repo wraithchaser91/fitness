@@ -57,4 +57,7 @@ form input:read-only{
         max-width:70vw;
         font-size: 0.7em;
     }
+    .mainABasic{
+        font-size:0.8em;
+    }
 }
