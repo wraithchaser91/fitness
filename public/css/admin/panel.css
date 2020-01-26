@@ -137,7 +137,7 @@ h1{
     .userControls{
         width:100%;
     }
-    .mainButtonA, form{
+    .mainButtonA, .unregisterForm{
         width:30%;
         margin: 0 1.5%;
     }

@@ -8,12 +8,12 @@
     <% let admins = 0; for(let user of users)if(user.permissionLevel === 0)admins++; %>
     <% users.forEach(user =>{ %>
         <div class="user">
-            <h3 class="<%= (user.permissionLevel === 0?`Admin`:`User`) %>"><%= `${user.name}` %></h3>
+            <h3 class="<%= (user.permissionLevel === 0?'Admin':'User') %>"><%= `${user.name}` %></h3>
             <div class="userControls">
                 <a href="/admin/panel/user/<%= user.id %>" class="mainButtonA">View</a>
                 <% if(!(admins === 1 && user.permissionLevel === 0)){%>
                     <a href="/admin/panel/user/update/<%= user.id %>" class="mainButtonA">Update</a>
-                    <form action="/admin/panel/unregister/<%= user.id %>?_method=DELETE" method="POST" class="unregisterForm"><button type="submit">Unregister</button></form>>
+                    <form action="/admin/panel/unregister/<%= user.id %>?_method=DELETE" method="POST" class="unregisterForm"><button type="submit">Unregister</button></form>
                 <%}%>
             </div>
         </div>

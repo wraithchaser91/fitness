@@ -106,7 +106,7 @@
     });
     let payments = [];
     for(let payment of paymentList){
-        payments.push(new Payment(payment));
+        payments.push(new Payment(payment,true));
     }
 
     document.addEventListener("click", ()=>{

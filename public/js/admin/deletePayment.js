@@ -1,7 +1,8 @@
 let isButtonShown = false;
 class Payment{
-    constructor(ref){
+    constructor(ref, preventDefault=false){
         this.ref = ref;
+        this.preventDefault = preventDefault;
         this.isClicked = false;
         this.isActive = false;
         this.hasButton = false;
@@ -15,6 +16,7 @@ class Payment{
     }
     setListeners(){
         this.ref.addEventListener("click", (e)=>{
+            if(this.preventDefault)e.preventDefault();
             let newDate = Date.now();
             if(this.lastDate === -1){
                 this.lastDate = newDate;
@@ -40,6 +42,7 @@ class Payment{
         //     this.isClicked = false;
         // });
         this.ref.addEventListener("touchstart", (e)=>{
+            if(this.preventDefault)e.preventDefault();
             let newDate = Date.now();
             if(this.lastDate === -1){
                 this.lastDate = newDate;
