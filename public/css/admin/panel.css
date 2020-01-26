@@ -110,6 +110,7 @@ h1{
     background-color: #9b3a9e;
     margin-right:0.5vw;
     font-size:0.8em;
+    text-align: center;
 }
 
 .mainButtonA:hover{
@@ -133,4 +134,16 @@ h1{
     .user{
         width: 90%;
     }
+    .userControls{
+        width:100%;
+    }
+    .mainButtonA, form{
+        width:30%;
+        margin: 0 1.5%;
+    }
+
+    form button{
+        width:100%;
+    }
+
 }

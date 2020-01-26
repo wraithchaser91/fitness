@@ -1,4 +1,3 @@
-///Allowing functionality to delete payments
 let isButtonShown = false;
 class Payment{
     constructor(ref){
@@ -8,25 +7,55 @@ class Payment{
         this.hasButton = false;
         this.timer = 0;
         this.maxTimer = 30;
+        this.lastDate = -1;
+        this.timeInterval = 300;
+        this.clickCount = 0;
+        this.maxClickCount = (screen.availWidth < 767?4:2);
         this.setListeners();
     }
     setListeners(){
-        this.ref.addEventListener("click", (e)=>e.stopPropagation());
-        this.ref.addEventListener("mousedown", (e)=>{
-            this.isClicked = true;
-            this.animate();
+        this.ref.addEventListener("click", (e)=>{
+            let newDate = Date.now();
+            if(this.lastDate === -1){
+                this.lastDate = newDate;
+                this.clickCount++;
+            }else{
+                if(newDate-this.lastDate < this.timeInterval){
+                    this.clickCount++;
+                    if(this.clickCount >= this.maxClickCount){
+                        e.stopPropagation();
+                        if(!this.isActive)this.setActive();
+                    }
+                }else{
+                    this.clickCount = 0;
+                }
+                this.lastDate = newDate;
+            }
         });
-        this.ref.addEventListener("mouseup", (e)=>{
-            this.isClicked = false;
-        });
+        // this.ref.addEventListener("mousedown", (e)=>{
+        //     this.isClicked = true;
+        //     this.animate();
+        // });
+        // this.ref.addEventListener("mouseup", (e)=>{
+        //     this.isClicked = false;
+        // });
         this.ref.addEventListener("touchstart", (e)=>{
-            e.preventDefault();
-            this.isClicked = true;
-            this.animate();
-        });
-        this.ref.addEventListener("touchend", (e)=>{
-            e.preventDefault();
-            this.isClicked = false;
+            let newDate = Date.now();
+            if(this.lastDate === -1){
+                this.lastDate = newDate;
+                this.clickCount++;
+            }else{
+                if(newDate-this.lastDate < this.timeInterval){
+                    this.clickCount++;
+                    if(this.clickCount >= this.maxClickCount){
+                        e.stopPropagation();
+                        if(!this.isActive)this.setActive();
+                    }
+                }else{
+                    this.clickCount = 0;
+                }
+                this.lastDate = newDate;
+            }
         });
     }
     animate(){
