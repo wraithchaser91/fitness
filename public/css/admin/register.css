@@ -37,3 +37,8 @@ p{
 .mainABasic:hover{
     filter: hue-rotate(180deg);
 }
+
+form input:read-only{
+    background-color: #fffa;
+    cursor: not-allowed;
+}

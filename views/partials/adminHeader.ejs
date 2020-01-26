@@ -9,24 +9,30 @@
 </header>
 
 <script>
-    let colours = [
-        "#3388bb",
-        "#30cfd0",
-        "#f09819",
-        "#fc00ff"
-    ];
     let defColour = "white";
+    let colours = [
+            "#3388bb",
+            "#30cfd0",
+            "#f09819",
+            "#fc00ff"
+        ];
     let aList = document.getElementsByTagName("a");
-    for(let i = 0; i < colours.length; i++){
-        aList[i].addEventListener("mouseenter", ()=>changeColour(aList[i],i));
-        aList[i].addEventListener("mouseleave", ()=>changeColour(aList[i],-1));
-    }
+    if(screen && screen.width < 787){
+        for(let i = 0; i < aList.length; i++){
+            aList[i].style.color = colours[i];
+        }
+    }else{
+        for(let i = 0; i < colours.length; i++){
+            aList[i].addEventListener("mouseenter", ()=>changeColour(aList[i],i));
+            aList[i].addEventListener("mouseleave", ()=>changeColour(aList[i],-1));
+        }
 
-    changeColour = (ele,index) =>{
-        if(index == -1){
-           ele.style.color = defColour;
-        }else{
-            ele.style.color = colours[index];
+        changeColour = (ele,index) =>{
+            if(index == -1){
+            ele.style.color = defColour;
+            }else{
+                ele.style.color = colours[index];
+            }
         }
     }
 </script>

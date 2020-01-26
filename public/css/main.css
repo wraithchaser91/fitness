@@ -85,11 +85,6 @@ form select{
     cursor:pointer;
 }
 
-form input:read-only{
-    background-color: #fffa;
-    cursor: not-allowed;
-}
-
 button{
     border:none;
     background-color: #34ebbd;
@@ -228,7 +223,11 @@ header .logoutForm{
         justify-content: space-between;
         margin: 1vh 5vw 0 4vw;        
     }
-
+    
+    #credits{
+        display: none;
+    }
+    
     .scaleHeading{
         position: relative;
         cursor: pointer;

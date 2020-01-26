@@ -14,15 +14,16 @@
     <%}%>
 </head>
 <body>
-    <div class="content content--canvas">
-    </div>
+    <div class="content content--canvas"></div>
     <div id="overlay"></div>
     <%- body %>
     <div id="credits">
         <h3>Background created by <a href="https://tympanus.net/codrops/2018/12/13/ambient-canvas-backgrounds/" target="_blank">Sean Free</a></h3>
     </div>
-    <!-- <script src="/js/noise.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/swirl.js"></script> -->
+    <script>
+        if(screen && screen.width > 787){
+            document.write(`<script src="/js/noise.min.js"><\/script><script src="/js/util.js"><\/script><script src="/js/swirl.js"><\/script>`);
+        }
+    </script>
 </body>
 </html>
