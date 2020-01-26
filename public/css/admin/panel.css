@@ -45,8 +45,8 @@ h1{
 
 #legend div #adminSpan,
 #legend div #userSpan{
-    width:15px;
-    height:15px;
+    width:10px;
+    height:10px;
     border-radius: 8px;
     margin-right:0.2vw;
     z-index: 10;
@@ -114,4 +114,23 @@ h1{
 
 .mainButtonA:hover{
     color:#fff;
+}
+
+@media only screen and (max-width:767px){
+    h1{
+        margin:10vh 0 1vh;
+        font-size:1.5em;
+    }
+    #mainContainer{
+        flex-direction: column;
+        width:90vw;
+        align-items: center;
+        justify-content: center;
+    }
+    #legend p{
+        font-size:0.6em;
+    }
+    .user{
+        width: 90%;
+    }
 }

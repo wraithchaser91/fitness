@@ -186,7 +186,7 @@ h1{
 
 @media only screen and (max-width:767px){
     h1{
-        margin:15vh 0 6vh;
+        margin:10vh 0 6vh;
         font-size:1.5em;
     }
     #mainContainer{
@@ -203,7 +203,7 @@ h1{
         font-size:0.7em;
     }
     #paymentBlock #pastPayments{
-        width:90%;
+        width:80%;
     }
     #paymentBlock #pastPayments .payment{
         justify-content: center;

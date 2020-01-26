@@ -135,13 +135,13 @@ header ul{
     flex-direction: row;
     width:100%;
     justify-content: flex-end;
-    margin:1vh 1vw 0 0;
+    margin:0.3vh 1vw 0 0;
     list-style-type: none;
 }
 
 header ul li{
     padding: 0.5vh 0.5vw 0.5vh;
-    font-size:0.8em;
+    font-size:1em;
 }
 
 header ul li a{
@@ -170,7 +170,6 @@ header .logoutForm{
     bottom:0;
     left:0vw;
     z-index:99;
-    background-color: black;
     text-align: center;
 }
 
@@ -222,6 +221,11 @@ header .logoutForm{
     header ul{
         justify-content: space-between;
         margin: 1vh 5vw 0 4vw;        
+    }
+
+    header ul li{
+        font-size:0.8em;
+        padding: 0.3vh 0.5vw 0.5vh;
     }
     
     #credits{

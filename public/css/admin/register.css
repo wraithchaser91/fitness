@@ -42,3 +42,19 @@ form input:read-only{
     background-color: #fffa;
     cursor: not-allowed;
 }
+
+@media only screen and (max-width:767px){
+    h1{
+        margin:10vh 0 6vh;
+        font-size:1.5em;
+    }
+    #mainContainer{
+        flex-direction: column;
+        width:90vw;
+        align-items: center;
+    }
+    p{
+        max-width:70vw;
+        font-size: 0.7em;
+    }
+}

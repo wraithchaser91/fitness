@@ -24,12 +24,10 @@ h1{
 }
 
 #backButton{
-    position: fixed;
-    top:2vh;
-    left:2vw;
-    color:white;
+    position: relative;
+    color: #E07B7A;;
     text-decoration: none;
-    z-index:10;
+    z-index: 10;
 }
 
 #backButton:hover{
@@ -75,4 +73,56 @@ h1{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+@media only screen and (max-width:767px){
+    h1{
+        margin:10vh 0 6vh;
+        font-size:1.5em;
+    }
+    #mainContainer{
+        flex-direction: column;
+        width:90vw;
+        align-items: center;
+        margin-bottom:3vh;
+    }
+    #profileContainer{
+        width:80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-bottom:1px solid #fff5;
+        margin-bottom:3vh;
+    }
+    #profileContainer h2,
+    #pastPaymentContainer h2{
+        font-size:1.3em;
+    }
+    #pastPaymentContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #pastPayments{
+        width:100%;
+        align-items: center;
+        justify-content: center;
+        padding-bottom:10px;
+        max-height:30vh;
+    }
+    .payment{
+        padding:0.6vh 0.5vw;
+    }
+    .payment h4{
+        font-size: 0.8em;
+        margin-bottom:0;
+    }
+    #deletePayment{
+        right:-10vw;
+    }
+    #backButton{
+        font-size:0.8em;
+        color:#E07B7A;
+    }
 }
